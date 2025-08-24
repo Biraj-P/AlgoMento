@@ -22,7 +22,7 @@
 
 ## 🚀 **Get Started in 7 Minutes**
 
-### 👉 **[Go to docs/QUICK_SETUP.md](docs/QUICK_SETUP.md)**
+### 👉 **[QUICK_SETUP](QUICK_SETUP.md)**
 
 **New here? The quick setup guide is your best friend!**
 
@@ -67,8 +67,6 @@ Built by a developer, for developers. No paywalls, no credit limits, no vendor l
 ## 🤝 **Contributing**
 
 Found a bug? Have a cool feature idea? Contributions are welcome!
-
-**[📖 Read the full contribution guide →](docs/CONTRIBUTORS.md)**
 
 ---
 
