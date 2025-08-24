@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoMento Setup Helper</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .step {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #4299e1;
+        }
+        .step h3 {
+            color: #2d3748;
+            margin-top: 0;
+        }
+        .api-key-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .btn {
+            background: #4299e1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #3182ce;
+        }
+        .success {
+            background: #c6f6d5;
+            border-left-color: #38a169;
+            color: #2f855a;
+        }
+        .error {
+            background: #fed7d7;
+            border-left-color: #e53e3e;
+            color: #c53030;
+        }
+        .code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            overflow-x: auto;
+        }
+        .provider-option {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .provider-option input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AlgoMento Setup Helper</h1>
+        
+        <div class="step">
+            <h3>Step 1: Choose Your AI Provider</h3>
+            <p>Select at least one AI provider. <strong>Gemini is recommended</strong> as it has a generous free tier.</p>
+            
+            <div class="provider-option">
+                <input type="checkbox" id="gemini" checked>
+                <label for="gemini"><strong>Google Gemini (Recommended)</strong> - Free tier available</label>
+            </div>
+            <div class="provider-option">
+                <input type="checkbox" id="openai">
+                <label for="openai">OpenAI (GPT-4, GPT-3.5) - Paid service</label>
+            </div>
+            <div class="provider-option">
+                <input type="checkbox" id="anthropic">
+                <label for="anthropic">Anthropic (Claude) - Paid service</label>
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Get Your API Key</h3>
+            <div id="gemini-setup" style="display: block;">
+                <h4>🔑 Google Gemini API Key</h4>
+                <p>1. Go to <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></p>
+                <p>2. Sign in with your Google account</p>
+                <p>3. Click "Create API Key"</p>
+                <p>4. Copy and paste your key below:</p>
+                <input type="password" id="gemini-key" class="api-key-input" placeholder="Paste your Gemini API key here">
+            </div>
+            
+            <div id="openai-setup" style="display: none;">
+                <h4>🔑 OpenAI API Key</h4>
+                <p>1. Go to <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></p>
+                <p>2. Sign in to your account</p>
+                <p>3. Click "Create new secret key"</p>
+                <p>4. Copy and paste your key below:</p>
+                <input type="password" id="openai-key" class="api-key-input" placeholder="Paste your OpenAI API key here">
+            </div>
+            
+            <div id="anthropic-setup" style="display: none;">
+                <h4>🔑 Anthropic API Key</h4>
+                <p>1. Go to <a href="https://console.anthropic.com/" target="_blank">Anthropic Console</a></p>
+                <p>2. Sign in to your account</p>
+                <p>3. Navigate to API Keys section</p>
+                <p>4. Copy and paste your key below:</p>
+                <input type="password" id="anthropic-key" class="api-key-input" placeholder="Paste your Anthropic API key here">
+            </div>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Configure Extension</h3>
+            <p>Click the button below to automatically configure your API keys in Chrome:</p>
+            <button class="btn" onclick="configureExtension()">🚀 Configure AlgoMento</button>
+            <button class="btn" onclick="testConnection()">🔍 Test Connection</button>
+        </div>
+
+        <div id="result-area"></div>
+
+        <div class="step">
+            <h3>Step 4: Manual Setup (Alternative)</h3>
+            <p>If automatic setup doesn't work, you can manually create a <code>.env</code> file:</p>
+            <button class="btn" onclick="generateEnvFile()">📄 Generate .env File</button>
+            <div id="env-content" style="display: none;"></div>
+        </div>
+
+        <div class="step">
+            <h3>Step 5: Load Extension</h3>
+            <p>1. Open Chrome and go to <code>chrome://extensions/</code></p>
+            <p>2. Enable "Developer mode" (top right toggle)</p>
+            <p>3. Click "Load unpacked" and select the AlgoMento folder</p>
+            <p>4. Visit LeetCode, HackerRank, Codeforces, GeeksforGeeks, CodeChef, AtCoder, SPOJ, or HackerEarth and look for the 🤖 icon!</p>
+        </div>
+    </div>
+
+    <script>
+        // Show/hide provider setups based on checkboxes
+        document.getElementById('gemini').addEventListener('change', function() {
+            document.getElementById('gemini-setup').style.display = this.checked ? 'block' : 'none';
+        });
+        
+        document.getElementById('openai').addEventListener('change', function() {
+            document.getElementById('openai-setup').style.display = this.checked ? 'block' : 'none';
+        });
+        
+        document.getElementById('anthropic').addEventListener('change', function() {
+            document.getElementById('anthropic-setup').style.display = this.checked ? 'block' : 'none';
+        });
+
+        function showResult(message, isSuccess = true) {
+            const resultArea = document.getElementById('result-area');
+            resultArea.innerHTML = `
+                <div class="step ${isSuccess ? 'success' : 'error'}">
+                    <h3>${isSuccess ? '✅ Success!' : '❌ Error'}</h3>
+                    <p>${message}</p>
+                </div>
+            `;
+        }
+
+        async function configureExtension() {
+            try {
+                const config = {};
+                
+                // Collect API keys
+                if (document.getElementById('gemini').checked) {
+                    const key = document.getElementById('gemini-key').value.trim();
+                    if (key) {
+                        config.GEMINI_API_KEY = key;
+                        config.MODEL_GEMINI = true;
+                    }
+                }
+                
+                if (document.getElementById('openai').checked) {
+                    const key = document.getElementById('openai-key').value.trim();
+                    if (key) {
+                        config.OPENAI_API_KEY = key;
+                        config.MODEL_OPENAI = true;
+                    }
+                }
+                
+                if (document.getElementById('anthropic').checked) {
+                    const key = document.getElementById('anthropic-key').value.trim();
+                    if (key) {
+                        config.ANTHROPIC_API_KEY = key;
+                        config.MODEL_ANTHROPIC = true;
+                    }
+                }
+
+                if (Object.keys(config).length === 0) {
+                    showResult('Please enter at least one API key!', false);
+                    return;
+                }
+
+                // Set default provider
+                if (config.GEMINI_API_KEY) {
+                    config.DEFAULT_PROVIDER = 'gemini';
+                    config.DEFAULT_MODEL = 'gemini-1.5-flash';
+                } else if (config.OPENAI_API_KEY) {
+                    config.DEFAULT_PROVIDER = 'openai';
+                    config.DEFAULT_MODEL = 'gpt-3.5-turbo';
+                } else if (config.ANTHROPIC_API_KEY) {
+                    config.DEFAULT_PROVIDER = 'anthropic';
+                    config.DEFAULT_MODEL = 'claude-3-haiku';
+                }
+
+                // Store in Chrome
+                await chrome.storage.local.set(config);
+                
+                showResult(`Configuration saved successfully! ${Object.keys(config).length} settings applied.`);
+                
+            } catch (error) {
+                showResult(`Configuration failed: ${error.message}`, false);
+            }
+        }
+
+        async function testConnection() {
+            try {
+                const stored = await chrome.storage.local.get(null);
+                
+                if (!stored.GEMINI_API_KEY && !stored.OPENAI_API_KEY && !stored.ANTHROPIC_API_KEY) {
+                    showResult('No API keys found. Please configure first!', false);
+                    return;
+                }
+                
+                showResult(`Connection test successful! Found: ${Object.keys(stored).filter(k => k.includes('API_KEY')).join(', ')}`);
+                
+            } catch (error) {
+                showResult(`Connection test failed: ${error.message}`, false);
+            }
+        }
+
+        function generateEnvFile() {
+            let envContent = '# AlgoMento Configuration\\n\\n';
+            
+            if (document.getElementById('gemini').checked) {
+                const key = document.getElementById('gemini-key').value.trim();
+                envContent += `GEMINI_API_KEY=${key || 'your_gemini_api_key_here'}\\n`;
+                envContent += `MODEL_GEMINI=true\\n\\n`;
+            }
+            
+            if (document.getElementById('openai').checked) {
+                const key = document.getElementById('openai-key').value.trim();
+                envContent += `OPENAI_API_KEY=${key || 'your_openai_api_key_here'}\\n`;
+                envContent += `MODEL_OPENAI=true\\n\\n`;
+            }
+            
+            if (document.getElementById('anthropic').checked) {
+                const key = document.getElementById('anthropic-key').value.trim();
+                envContent += `ANTHROPIC_API_KEY=${key || 'your_anthropic_api_key_here'}\\n`;
+                envContent += `MODEL_ANTHROPIC=true\\n\\n`;
+            }
+            
+            envContent += 'DEFAULT_PROVIDER=gemini\\n';
+            envContent += 'DEFAULT_MODEL=gemini-1.5-flash';
+            
+            const envDiv = document.getElementById('env-content');
+            envDiv.style.display = 'block';
+            envDiv.innerHTML = `
+                <p>Copy the content below and save it as <code>.env</code> in your AlgoMento folder:</p>
+                <div class="code">${envContent.replace(/\\n/g, '<br>')}</div>
+            `;
+        }
+    </script>
+</body>
+</html>

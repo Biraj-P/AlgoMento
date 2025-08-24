@@ -1,0 +1,45 @@
+{
+  "name": "algomento-ai-assistant",
+  "version": "1.0.0",
+  "description": "AI-powered coding mentor for LeetCode, HackerRank, and competitive programming platforms",
+  "main": "content.js",
+  "scripts": {
+    "setup": "echo 'Open setup.html in your browser to configure API keys'",
+    "build": "echo 'No build step required - this is a Chrome extension'",
+    "dev": "echo 'Load the extension in Chrome Developer mode'"
+  },
+  "keywords": [
+    "chrome-extension",
+    "ai",
+    "coding",
+    "leetcode",
+    "interview-prep",
+    "programming-assistant",
+    "gemini",
+    "openai",
+    "anthropic"
+  ],
+  "author": "AlgoMento Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/algomento/chrome-extension"
+  },
+  "bugs": {
+    "url": "https://github.com/algomento/chrome-extension/issues"
+  },
+  "homepage": "https://github.com/algomento/chrome-extension#readme",
+  "engines": {
+    "chrome": ">=88.0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "manifest_version": 3
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+AlgoMento - AI Coding Assistant
+Extension Popup Interface
+
+Copyright (c) 2025 Biraj Paul (Biraj-P)
+Licensed under the MIT License
+
+Original Author: Biraj Paul
+GitHub: https://github.com/Biraj-P
+Project: https://github.com/Biraj-P/AlgoMento
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoMento - by Biraj Paul</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="popup-enhanced.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <div class="logo-text">
+                    <span class="title">AlgoMento AI</span>
+                    <span class="subtitle">Your Intelligent Coding Companion</span>
+                </div>
+            </div>
+            <div class="version">v2.0</div>
+        </div>
+        
+        <div class="content">
+            <div class="api-section">
+                <h3>🔑 API Configuration</h3>
+                <div class="input-group">
+                    <input type="password" id="apiKey" placeholder="Enter your Gemini API key">
+                    <button id="saveApiKey" class="btn-primary">Save</button>
+                </div>
+                <div class="api-status" id="apiStatus">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">Not configured</span>
+                </div>
+                <div class="dev-tools" style="margin: 10px 0; text-align: center;">
+                    <button id="loadDevKeys" style="background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 12px;">
+                        🔧 Load Keys from .env
+                    </button>
+                </div>
+                <p class="help-text">
+                    Get your free API key from 
+                    <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>
+                </p>
+            </div>
+
+            <div class="features-section">
+                <h3>🚀 New Features</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">�</div>
+                        <div class="feature-content">
+                            <h4>Discuss Approach</h4>
+                            <p>Brainstorm solution strategies</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">�‍💻</div>
+                        <div class="feature-content">
+                            <h4>Help in Coding</h4>
+                            <p>Step-by-step guidance</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">�</div>
+                        <div class="feature-content">
+                            <h4>Code Review</h4>
+                            <p>Comprehensive analysis</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-content">
+                            <h4>Interactive Quizzes</h4>
+                            <p>Test your knowledge</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="actions-section">
+                <button id="openSidebar" class="btn-secondary">
+                    <span>�</span>
+                    Open AI Assistant
+                </button>
+                <button id="quickAnalyze" class="btn-primary">
+                    <span>⚡</span>
+                    Quick Analyze
+                </button>
+            </div>
+
+            <div class="platforms-section">
+                <h3>📊 Supported Platforms</h3>
+                <div class="platforms">
+                    <span class="platform-badge">LeetCode</span>
+                    <span class="platform-badge">HackerRank</span>
+                    <span class="platform-badge">Codeforces</span>
+                    <span class="platform-badge">CodeChef</span>
+                    <span class="platform-badge">GeeksforGeeks</span>
+                    <span class="platform-badge">AtCoder</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="links">
+                <a href="#" id="getApiKey">📚 Help</a>
+                <a href="#" id="help">💬 Feedback</a>
+                <a href="#" id="github">⭐ GitHub</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="config.js"></script>
+    <script src="dev-api-loader.js"></script>
+    <script src="immediate-api-fix.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
