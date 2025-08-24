@@ -10,7 +10,7 @@ I got tired of getting stuck on coding problems and having to search through for
 
 ## 🚀 **Want to Get Started Right Away?**
 
-### 👉 **[Check out docs/QUICK_SETUP.md](docs/QUICK_SETUP.md) - I'll have you up and running in 7 minutes!** 
+### 👉 **[Check out QUICK_SETUP](QUICK_SETUP.md) - I'll have you up and running in 7 minutes!** 
 
 **First time here? The quick setup guide is definitely the way to go.**
 
