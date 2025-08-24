@@ -28,7 +28,7 @@ I got tired of getting stuck on coding problems and having to search through for
 
 ## 🚀 Getting Started
 
-> **💡 Want the quick version?** Jump to **[docs/QUICK_SETUP.md](docs/QUICK_SETUP.md)** - it's way faster!
+> **💡 Want the quick version?** Jump to **[QUICK_SETUP](QUICK_SETUP.md)** - it's way faster!
 
 *This section has all the details if you want to understand everything that's happening.*
 
@@ -145,7 +145,7 @@ If `.env` setup doesn't work, you can manually configure through Chrome:
 
 ## 🔍 When Things Don't Work (Troubleshooting)
 
-> **💡 Quick tip:** If you're having setup problems, try the **[docs/QUICK_SETUP.md](docs/QUICK_SETUP.md)** guide first - it usually fixes most issues!
+> **💡 Quick tip:** If you're having setup problems, try the **[QUICK_SETUP](QUICK_SETUP.md)** guide first - it usually fixes most issues!
 
 ### Extension Won't Start?
 1. **Double-check your API key** - Make sure it's actually in the `.env` file
