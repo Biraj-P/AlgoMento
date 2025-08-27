@@ -174,7 +174,7 @@ class EnvironmentConfig {
         // Hardcode your API key here for development (remove in production)
         // This is a fallback when .env file is not accessible
         const hardcodedValues = {
-            GEMINI_API_KEY: 'AIzaSyDevIyax54mNWLV3qLdPFYp5NgJxBninYI',
+            GEMINI_API_KEY: 'your_key',
             DEFAULT_PROVIDER: 'gemini',
             DEFAULT_MODEL: 'gemini-1.5-flash',
             MODEL_GEMINI: true,
