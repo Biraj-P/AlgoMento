@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 } else {
                     // Fallback direct configuration
                     const fallbackConfig = {
-                        geminiApiKey: "AIzaSyAtFyEfdBQB6CSBPsoF1rKIci-dRQ4roP8",
+                        geminiApiKey: "your_key",
                         defaultProvider: "gemini",
                         defaultModel: "gemini-1.5-flash",
                         debugMode: true
